@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card</title>
+    <link rel="stylesheet" href="/static/shaverma/style.css">
+
+</head>
+<body>
+<header>
+    <div>
+        <img class="header_svg" src="/static/shaverma/images/logo2.png" alt="Banana Logo">
+        <h1><a href="https://youtu.be/-0QnJQ30CoM?si=s7EbBaHQf5PwgK6a"  style="text-decoration: none; color: inherit;">BishWrap</a></h1>
+
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#info">Information</a></li>
+            <li><a href="#feedback-form">Feedback</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <section id="products" class="fade-in">
+        <h2>Products</h2>
+        <div class="product-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text"><strong>Price:</strong>{{ product.price }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="info" class="fade-in">
+        <h2>Information</h2>
+        <p><strong>Tell:</strong>{{ info.tell }}</p>
+        <p><strong>Address:</strong>{{ info.address }} </p>
+    </section>
+
+    <section id="feedback-form" class="fade-in">
+        <h2>Оставьте свой отзыв</h2>
+        <form id="feedbackForm" method="post" action="">
+            {% csrf_token %}
+            <div>
+                <label for="id_name">Name:</label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                    <div class="error">{{ form.name.errors.as_text }}</div>
+                {% endif %}
+            </div>
+            <div>
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="error">{{ form.email.errors.as_text }}</div>
+                {% endif %}
+            </div>
+            <div>
+                <label for="id_message">Message:</label>
+                {{ form.message }}
+                {% if form.message.errors %}
+                    <div class="error">{{ form.message.errors.as_text }}</div>
+                {% endif %}
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 BishWrap. Все права защищены.</p>
+</footer>
+{% comment %}
+<script src="/static/shaverma/main.js"></script> {% endcomment %}
+</body>
+</html>

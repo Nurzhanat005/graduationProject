@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    background-image: url("images/background.jpeg");
+    background-size: cover;
+}
+
+header {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+header img {
+    width: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a.active {
+    color: #ffcc00;
+}
+
+main {
+    padding-top: 100px;
+}
+
+section {
+    margin-top: 300px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    margin: 0 auto;
+
+}
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    background-color: #fff;
+    flex: 0 0 calc(25% - 20px);
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-card h5 {
+    margin: 10px 0;
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input {
+    width: 400px;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+.messages {
+    width: 90%; /* Установите ширину на 90% от родительского элемента */
+    padding: 20px; /* Увеличить отступы для лучшей видимости */
+    margin: 10px auto; /* Центрировать сообщения и добавить внешний отступ сверху и снизу */
+    text-align: center;
+    border-radius: 8px; /* Добавим скругление углов */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Слегка выделим блок тенью */
+}
+
+.messages .success {
+    color: #155724; /* Изменим цвет текста на более темно-зеленый */
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb; /* Добавим зеленую рамку */
+}
+
+.messages .error {
+    color: #721c24; /* Изменим цвет текста на более темно-красный */
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb; /* Добавим красную рамку */
+}
